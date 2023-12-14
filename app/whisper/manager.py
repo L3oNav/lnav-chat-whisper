@@ -1,4 +1,5 @@
 from app.utils.manager import Manager
+from app.whisper.models import Script
 class WhisperManager(Manager):
     def __init__(self, api_key):
         super().__init__()
@@ -32,15 +33,18 @@ class WhisperManager(Manager):
             print(f"Recognized text: {recognized_text}")
 
             # Implement further processing or storage of the recognized text
-            # ...
-
             return recognized_text
         except Exception as e:
             raise Exception(f"Error processing audio: {str(e)}")
 
-    def remove_processed_audio(self, audio_file_path):
-        # Implement logic to remove or archive processed audio files
-        pass
+    def new_script(self, script, language, message_id):
+        try:
+            script = Script(script=script, language=language, message_id=message_id)
+            self.session.add(script)
+            self.session.commit()
+            return script
+        except Exception as e:
+            raise Exception(f"Error creating script: {str(e)}")
 
     def run_processing_loop(self):
         while not self.audio_queue.empty():
