@@ -1,5 +1,9 @@
 # Chat Application for LNav Application Whisper Implementation
 
+Whisper Integration:
+
+The overarching purpose of the lnav project seems to be providing a robust and extensible framework for automating the processing of audio files using the Whisper ASR model. This could be applied in various scenarios such as transcription services, language detection, or any application that involves the analysis of spoken content in audio files. The project aims to streamline the handling of audio data and the extraction of meaningful information from it.
+
 ## Table of Contents
 - [Development](#development)
 - [Usage](#usage)
